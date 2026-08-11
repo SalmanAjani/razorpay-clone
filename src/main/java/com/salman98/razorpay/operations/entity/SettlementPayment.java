@@ -1,10 +1,17 @@
 package com.salman98.razorpay.operations.entity;
 
+import com.salman98.razorpay.common.entity.BaseEntity;
 import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
 @Table(name = "settlement_payment")
-public class SettlementPayment {
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class SettlementPayment extends BaseEntity {
 
     @EmbeddedId
     private SettlementPaymentId id;

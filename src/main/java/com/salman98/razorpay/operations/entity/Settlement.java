@@ -1,15 +1,22 @@
 package com.salman98.razorpay.operations.entity;
 
+import com.salman98.razorpay.common.entity.BaseEntity;
 import com.salman98.razorpay.common.entity.Money;
 import com.salman98.razorpay.common.enums.SettlementStatus;
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
 @Table(name = "settlement")
-public class Settlement {
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class Settlement extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
