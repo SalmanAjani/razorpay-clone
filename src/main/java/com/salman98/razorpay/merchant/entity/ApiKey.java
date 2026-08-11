@@ -2,11 +2,17 @@ package com.salman98.razorpay.merchant.entity;
 
 import com.salman98.razorpay.common.enums.Environment;
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.UUID;
 
 @Entity
 @Table(name = "api_key")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class ApiKey {
 
     @Id
@@ -28,8 +34,8 @@ public class ApiKey {
     private Environment environment;
 
     @Column(nullable = false)
+    @Builder.Default
     private boolean enabled = true;
-
 
     private java.time.LocalDateTime lastUsedAt;
     private java.time.LocalDateTime rotatedAt;
