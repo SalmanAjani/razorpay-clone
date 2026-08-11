@@ -13,6 +13,7 @@ import com.salman98.razorpay.merchant.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -23,6 +24,7 @@ public class AuthServiceImpl implements AuthService {
     private final MerchantRepository merchantRepository;
 
     @Override
+    @Transactional
     public MerchantResponse signup(MerchantSignupRequest request) {
 
         if (merchantRepository.existsByEmail(request.email())) {
