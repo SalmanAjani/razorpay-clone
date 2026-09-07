@@ -1,6 +1,6 @@
 package com.salman98.razorpay.payment.gateway.dto;
 
-public sealed interface PaymentResult permits PaymentResult.Pending, PaymentResult.Failure {
+public sealed interface PaymentResult permits PaymentResult.Pending, PaymentResult.Failure, PaymentResult.Success {
 
     record Pending(String registrationRef) implements PaymentResult {
     }
@@ -8,4 +8,6 @@ public sealed interface PaymentResult permits PaymentResult.Pending, PaymentResu
     record Failure(String errorCode, String errorDescription) implements PaymentResult {
     }
 
+    record Success(String bankReference) implements PaymentResult {
+    }
 }
