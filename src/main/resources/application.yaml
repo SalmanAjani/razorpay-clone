@@ -8,13 +8,13 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: true
+    show-sql: false
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
 vault:
-  master-key: egsgs981g98s1g98sd1g98s1dg98sd98g1sd98g19s1g98s1dgsfa
+  master-key: asdf97asd9fuajsiodfua98s7dfyuajsildfhao8s7dfuoaisjfdioas98df7yua8e
 
 payment:
   simulator:
@@ -33,3 +33,6 @@ payment:
         min-delay-seconds: 4
         max-delay-seconds: 10
         success-rate: 80
+
+jwt:
+  secret-key: a9asd7fulasjdfaklsdfu98q3uhjdiosh897as9d8f7ua9osufdjilasdjfasfasgasga14

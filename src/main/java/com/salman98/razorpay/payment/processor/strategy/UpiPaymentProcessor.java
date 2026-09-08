@@ -4,7 +4,11 @@ import com.salman98.razorpay.common.util.RandomizerUtil;
 import com.salman98.razorpay.payment.processor.PaymentProcessor;
 import com.salman98.razorpay.payment.processor.dto.PaymentProcessorRequest;
 import com.salman98.razorpay.payment.processor.dto.PaymentProcessorResponse;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
+@Component
+@Slf4j
 public class UpiPaymentProcessor implements PaymentProcessor {
 
     @Override
@@ -23,7 +27,7 @@ public class UpiPaymentProcessor implements PaymentProcessor {
         }
 
         String processorRef = "UPI_PROCESSOR_" + RandomizerUtil.randomBase64(16);
-        
+
         return new PaymentProcessorResponse.Pending(processorRef);
     }
 }

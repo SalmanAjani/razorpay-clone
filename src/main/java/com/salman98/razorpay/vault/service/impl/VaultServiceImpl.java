@@ -20,6 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.encrypt.BytesEncryptor;
 import org.springframework.security.crypto.keygen.KeyGenerators;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
@@ -37,6 +38,7 @@ public class VaultServiceImpl implements VaultService {
     private final PaymentProcessorRouter paymentProcessorRouter;
 
     @Override
+    @Transactional
     public TokenizeResponse tokenize(TokenizeRequest request, UUID merchantId) {
 
         String lastFour = request.pan().substring(request.pan().length() - 4);

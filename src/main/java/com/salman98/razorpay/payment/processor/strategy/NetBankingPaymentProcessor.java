@@ -4,7 +4,11 @@ import com.salman98.razorpay.common.util.RandomizerUtil;
 import com.salman98.razorpay.payment.processor.PaymentProcessor;
 import com.salman98.razorpay.payment.processor.dto.PaymentProcessorRequest;
 import com.salman98.razorpay.payment.processor.dto.PaymentProcessorResponse;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
+@Component
+@Slf4j
 public class NetBankingPaymentProcessor implements PaymentProcessor {
 
     @Override
@@ -13,7 +17,7 @@ public class NetBankingPaymentProcessor implements PaymentProcessor {
         final String BANK_CODE_FAIL = "BANK_CODE_FAIL";
 
         String bankCode = request.methodDetails() != null ?
-                request.methodDetails().get("BANK").toString() : null;
+                request.methodDetails().get("bank").toString() : null;
 
         // simulation
         if (BANK_CODE_FAIL.equals(bankCode)) {
